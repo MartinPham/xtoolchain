@@ -1,0 +1,11 @@
+.DS_Store
+
+/src/node-*/*
+/src/php-*/*
+/src/python-*/*
+/src/onig-*/*
+/src/libzip-*/*
+/src/openssl-*/*
+/src/nginx-*/*
+
+!/src/*/build*.sh

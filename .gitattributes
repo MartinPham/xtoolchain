@@ -1,0 +1,4 @@
+targets/kindlepw2/sdks/koxtoolchain-2021.12.tar.gz filter=lfs diff=lfs merge=lfs -text
+targets/pocketbook6/sdks/SDK-B288-6.3.upd2.7z filter=lfs diff=lfs merge=lfs -text
+targets/kindle/sdks/koxtoolchain-2021.12.tar.gz filter=lfs diff=lfs merge=lfs -text
+targets/kindle5/sdks/koxtoolchain-2021.12.tar.gz filter=lfs diff=lfs merge=lfs -text
