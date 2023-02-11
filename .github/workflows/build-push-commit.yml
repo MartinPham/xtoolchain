@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - 'targets/**'
+      - '.github/workflows/build-push-commit.yml'
     branches: [ main, develop ]
 
 env:
