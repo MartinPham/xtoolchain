@@ -24,3 +24,5 @@ USER sdk
 RUN cd /home/sdk && git clone https://github.com/koreader/koxtoolchain.git
 
 RUN cd koxtoolchain && rm -rf /home/sdk/x-tools && ./gen-tc.sh pocketbook && mv /home/sdk/x-tools/* /app/x-tools/
+
+USER root
