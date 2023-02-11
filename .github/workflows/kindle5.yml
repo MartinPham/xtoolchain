@@ -1,0 +1,49 @@
+name: Kindle 5
+
+on:
+  push:
+    paths:
+      - 'targets/kindle5/**'
+      - '.github/workflows/kindle5.yml'
+    branches: [ main, develop ]
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+
+jobs:
+  build-push:
+    name: Kindle 5 build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          lfs: true
+
+      - name: Log in to the Container registry
+        uses: docker/login-action@v2
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@v4
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          tags: type=sha,prefix={{branch}}-
+
+      - name: Build and push Docker image - kindle5
+        uses: docker/build-push-action@v4
+        with:
+          context: targets/kindle5
+          file: targets/kindle5/docker/Dockerfile
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}-kindle5
+          labels: ${{ steps.meta.outputs.labels }}

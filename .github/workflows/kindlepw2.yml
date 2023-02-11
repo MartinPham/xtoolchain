@@ -1,0 +1,49 @@
+name: Kindle PW2
+
+on:
+  push:
+    paths:
+      - 'targets/kindlepw2/**'
+      - '.github/workflows/kindlepw2.yml'
+    branches: [ main, develop ]
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+
+jobs:
+  build-push:
+    name: Kindle PW2 build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          lfs: true
+
+      - name: Log in to the Container registry
+        uses: docker/login-action@v2
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@v4
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          tags: type=sha,prefix={{branch}}-
+
+      - name: Build and push Docker image - kindlepw2
+        uses: docker/build-push-action@v4
+        with:
+          context: targets/kindlepw2
+          file: targets/kindlepw2/docker/Dockerfile
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}-kindlepw2
+          labels: ${{ steps.meta.outputs.labels }}

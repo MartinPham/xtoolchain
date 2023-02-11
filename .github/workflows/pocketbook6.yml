@@ -1,10 +1,10 @@
-name: Build & Push on commit
+name: Pocketbook 6
 
 on:
   push:
     paths:
-      - 'targets/**'
-      - '.github/workflows/build-push-commit.yml'
+      - 'targets/pocketbook6/**'
+      - '.github/workflows/pocketbook6.yml'
     branches: [ main, develop ]
 
 env:
@@ -13,7 +13,7 @@ env:
 
 jobs:
   build-push:
-    name: "Build & Push on commit"
+    name: Pocketbook 6 Build
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -38,33 +38,6 @@ jobs:
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           tags: type=sha,prefix={{branch}}-
-
-      - name: Build and push Docker image - kindle
-        uses: docker/build-push-action@v4
-        with:
-          context: targets/kindle
-          file: targets/kindle/docker/Dockerfile
-          push: true
-          tags: ${{ steps.meta.outputs.tags }}-kindle
-          labels: ${{ steps.meta.outputs.labels }}
-
-      - name: Build and push Docker image - kindle5
-        uses: docker/build-push-action@v4
-        with:
-          context: targets/kindle5
-          file: targets/kindle5/docker/Dockerfile
-          push: true
-          tags: ${{ steps.meta.outputs.tags }}-kindle5
-          labels: ${{ steps.meta.outputs.labels }}
-
-      - name: Build and push Docker image - kindlepw2
-        uses: docker/build-push-action@v4
-        with:
-          context: targets/kindlepw2
-          file: targets/kindlepw2/docker/Dockerfile
-          push: true
-          tags: ${{ steps.meta.outputs.tags }}-kindlepw2
-          labels: ${{ steps.meta.outputs.labels }}
 
       - name: Build and push Docker image - pocketbook6
         uses: docker/build-push-action@v4

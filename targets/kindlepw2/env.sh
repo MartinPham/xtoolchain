@@ -3,9 +3,9 @@
 export BUILDROOT=/app
 
 # kindle
-export DEV_SDK=x-tools/arm-kindle5-linux-gnueabi
+export DEV_SDK=x-tools/arm-kindlepw2-linux-gnueabi
 export DEV_SDK_PATH=${BUILDROOT}/${DEV_SDK}
-export DEV_SDK_TOOLCHAIN_PREFIX=arm-kindle5-linux-gnueabi
+export DEV_SDK_TOOLCHAIN_PREFIX=arm-kindlepw2-linux-gnueabi
 export DEV_SDK_SYSROOT=${DEV_SDK_PATH}/${DEV_SDK_TOOLCHAIN_PREFIX}/sysroot
 export DEV_SDK_TOOLCHAIN_BIN_PATH=${DEV_SDK_PATH}/bin
 export DEV_SDK_CSTOOLS=${DEV_SDK_SYSROOT}/
@@ -17,6 +17,7 @@ echo "DEV_SDK_TOOLCHAIN_PREFIX = $DEV_SDK_TOOLCHAIN_PREFIX"
 echo "DEV_SDK_SYSROOT = $DEV_SDK_SYSROOT"
 echo "DEV_SDK_TOOLCHAIN_BIN_PATH = $DEV_SDK_TOOLCHAIN_BIN_PATH"
 echo "DEV_SDK_CSTOOLS = $DEV_SDK_CSTOOLS"
+echo "DEV_SDK_PREFIX = $DEV_SDK_PREFIX"
 
 
 export CSTOOLS=${DEV_SDK_CSTOOLS}

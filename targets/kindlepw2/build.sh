@@ -1,2 +1,2 @@
 #!/bin/bash
-docker run -it --rm -v $(pwd)/src:/app/src -v $(pwd)/targets/kindle5/mnt:/mnt kindle5 $1
+docker run -it --rm -v $(pwd)/src:/app/src -v $(pwd)/targets/kindlepw2/mnt:/mnt -v $(pwd)/targets/kindlepw2/env.sh:/env.sh  kindlepw2 $1

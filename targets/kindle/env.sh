@@ -17,6 +17,7 @@ echo "DEV_SDK_TOOLCHAIN_PREFIX = $DEV_SDK_TOOLCHAIN_PREFIX"
 echo "DEV_SDK_SYSROOT = $DEV_SDK_SYSROOT"
 echo "DEV_SDK_TOOLCHAIN_BIN_PATH = $DEV_SDK_TOOLCHAIN_BIN_PATH"
 echo "DEV_SDK_CSTOOLS = $DEV_SDK_CSTOOLS"
+echo "DEV_SDK_PREFIX = $DEV_SDK_PREFIX"
 
 
 export CSTOOLS=${DEV_SDK_CSTOOLS}
@@ -53,12 +54,12 @@ unset LIBC
 export CSTOOLS_INC=${CSTOOLS}/include
 export CSTOOLS_LIB=${CSTOOLS}/lib
 export ARM_TARGET_LIB=$CSTOOLS_LIB
-export GYP_DEFINES="armv7=1"
-export CXXFLAGS="-march=armv7-a"
+export GYP_DEFINES="armv6=1"
+export CXXFLAGS="-march=armv6-a"
 export LDFLAGS="-L${CSTOOLS_LIB} -Wl,-rpath,/mnt/us/system/lib -Wl,-rpath-link,${CSTOOLS_LIB} -Wl,-O1 -Wl,--hash-style=gnu"
 export CFLAGS="-I${CSTOOLS_INC} -fexpensive-optimizations -frename-registers -fomit-frame-pointer -O2 -ggdb3"
 export CPPFLAGS="-I${CSTOOLS_INC}"
-export CCFLAGS="-march=armv7-a"
+export CCFLAGS="-march=armv6-a"
 
 export SHELL="/bin/bash"
 export TERM="screen"
