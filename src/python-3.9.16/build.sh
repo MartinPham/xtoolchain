@@ -2,6 +2,8 @@
 
 CWD=$(pwd)
 
+. /env.sh
+
 cd $CWD/src
 
 make distclean

@@ -2,6 +2,8 @@ name: Build & Push on commit
 
 on:
   push:
+    paths:
+      - 'targets/**'
     branches: [ main, develop ]
 
 env:
@@ -42,5 +44,5 @@ jobs:
           context: .
           file: targets/kindle/docker/Dockerfile
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
+          tags: ${{ steps.meta.outputs.tags }}-kindle
           labels: ${{ steps.meta.outputs.labels }}
