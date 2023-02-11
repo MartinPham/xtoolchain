@@ -47,3 +47,30 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}-kindle
           labels: ${{ steps.meta.outputs.labels }}
+
+      - name: Build and push Docker image - kindle5
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          file: targets/kindle5/docker/Dockerfile
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}-kindle5
+          labels: ${{ steps.meta.outputs.labels }}
+
+      - name: Build and push Docker image - kindlepw2
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          file: targets/kindlepw2/docker/Dockerfile
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}-kindlepw2
+          labels: ${{ steps.meta.outputs.labels }}
+
+      - name: Build and push Docker image - pocketbook6
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          file: targets/pocketbook6/docker/Dockerfile
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}-pocketbook6
+          labels: ${{ steps.meta.outputs.labels }}

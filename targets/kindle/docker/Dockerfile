@@ -4,11 +4,11 @@ RUN apt update
 
 WORKDIR /app
 
-COPY targets/kindle/docker/compile.sh /app/compile.sh
+COPY docker/compile.sh /app/compile.sh
 
 ENTRYPOINT ["./compile.sh"]
 
-COPY targets/kindle/sdks/koxtoolchain-2021.12.tar.gz /app/koxtoolchain-2021.12.tar.gz
+COPY sdks/koxtoolchain-2021.12.tar.gz /app/koxtoolchain-2021.12.tar.gz
 
 
 RUN tar -zxvf koxtoolchain-2021.12.tar.gz && rm -rf koxtoolchain-2021.12.tar.gz

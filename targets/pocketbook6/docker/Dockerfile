@@ -4,11 +4,11 @@ RUN apt update
 
 WORKDIR /app
 
-COPY targets/kindle5/docker/compile.sh /app/compile.sh
+COPY docker/compile.sh /app/compile.sh
 
 ENTRYPOINT ["./compile.sh"]
 
-COPY targets/pocketbook6/sdks/SDK-B288-6.3.upd2.7z /app/SDK-B288-6.3.upd2.7z
+COPY sdks/SDK-B288-6.3.upd2.7z /app/SDK-B288-6.3.upd2.7z
 
 RUN apt install -y p7zip-full
 
