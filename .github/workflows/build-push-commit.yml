@@ -42,8 +42,7 @@ jobs:
       - name: Build and push Docker image - kindle
         uses: docker/build-push-action@v4
         with:
-          no-cache: true
-          context: .
+          context: targets/kindle
           file: targets/kindle/docker/Dockerfile
           push: true
           tags: ${{ steps.meta.outputs.tags }}-kindle
@@ -52,8 +51,7 @@ jobs:
       - name: Build and push Docker image - kindle5
         uses: docker/build-push-action@v4
         with:
-          no-cache: true
-          context: .
+          context: targets/kindle5
           file: targets/kindle5/docker/Dockerfile
           push: true
           tags: ${{ steps.meta.outputs.tags }}-kindle5
@@ -62,8 +60,7 @@ jobs:
       - name: Build and push Docker image - kindlepw2
         uses: docker/build-push-action@v4
         with:
-          no-cache: true
-          context: .
+          context: targets/kindlepw2
           file: targets/kindlepw2/docker/Dockerfile
           push: true
           tags: ${{ steps.meta.outputs.tags }}-kindlepw2
@@ -72,8 +69,7 @@ jobs:
       - name: Build and push Docker image - pocketbook6
         uses: docker/build-push-action@v4
         with:
-          no-cache: true
-          context: .
+          context: targets/pocketbook6
           file: targets/pocketbook6/docker/Dockerfile
           push: true
           tags: ${{ steps.meta.outputs.tags }}-pocketbook6
