@@ -18,7 +18,7 @@ USER sdk
 
 WORKDIR /home/sdk
 
-RUN cd git clone https://github.com/koreader/koxtoolchain.git
+RUN git clone https://github.com/koreader/koxtoolchain.git
 
 RUN cd koxtoolchain && rm -rf /home/sdk/x-tools && ./gen-tc.sh kindlepw2 && mv /home/sdk/x-tools/* /app/x-tools/
 
