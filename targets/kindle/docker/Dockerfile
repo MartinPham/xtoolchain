@@ -20,7 +20,7 @@ WORKDIR /home/sdk
 
 RUN git clone https://github.com/koreader/koxtoolchain.git
 
-RUN cd koxtoolchain && rm -rf /home/sdk/x-tools && ./gen-tc.sh kindle && mv /home/sdk/x-tools/* /app/x-tools/
+RUN cd koxtoolchain && ./gen-tc.sh kindle && mv /home/sdk/x-tools/* /app/x-tools/
 
 USER root
 
