@@ -4,7 +4,7 @@ on:
   push:
     paths:
       - 'targets/kindle/**'
-      - '.github/workflows/kindle.yml'
+      - '.github/workflows/kindle-sdk.yml'
     branches: [ main, develop ]
 
 env:
@@ -43,7 +43,7 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: targets/kindle
-          file: targets/kindle/docker/sdk-prebuilt.Dockerfile
+          file: targets/kindle/docker/Dockerfile
           push: true
-          tags: ${{ steps.meta.outputs.tags }}-kindle
+          tags: ${{ steps.meta.outputs.tags }}-kindle-sdk
           labels: ${{ steps.meta.outputs.labels }}
