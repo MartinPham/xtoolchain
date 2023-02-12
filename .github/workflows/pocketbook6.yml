@@ -43,7 +43,7 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: targets/pocketbook6
-          file: targets/pocketbook6/docker/Dockerfile
+          file: targets/pocketbook6/docker/sdk-prebuilt.Dockerfile
           push: true
           tags: ${{ steps.meta.outputs.tags }}-pocketbook6
           labels: ${{ steps.meta.outputs.labels }}

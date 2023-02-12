@@ -43,7 +43,7 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: targets/kindlepw2
-          file: targets/kindlepw2/docker/Dockerfile
+          file: targets/kindlepw2/docker/sdk-prebuilt.Dockerfile
           push: true
           tags: ${{ steps.meta.outputs.tags }}-kindlepw2
           labels: ${{ steps.meta.outputs.labels }}

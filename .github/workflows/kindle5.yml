@@ -43,7 +43,7 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: targets/kindle5
-          file: targets/kindle5/docker/Dockerfile
+          file: targets/kindle5/docker/sdk-prebuilt.Dockerfile
           push: true
           tags: ${{ steps.meta.outputs.tags }}-kindle5
           labels: ${{ steps.meta.outputs.labels }}
