@@ -1,10 +1,10 @@
-name: Kindle PW2
+name: Kindle 5 sdk
 
 on:
   push:
     paths:
-      - 'targets/kindlepw2/**'
-      - '.github/workflows/kindlepw2.yml'
+      - 'targets/kindle5/**'
+      - '.github/workflows/kindle5-sdk.yml'
     branches: [ main, develop ]
 
 env:
@@ -13,7 +13,7 @@ env:
 
 jobs:
   build:
-    name: Kindle PW2 build
+    name: Kindle 5 build
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -39,11 +39,11 @@ jobs:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           tags: type=sha,prefix={{branch}}-
 
-      - name: Build and push Docker image - kindlepw2
+      - name: Build and push Docker image - kindle5
         uses: docker/build-push-action@v4
         with:
-          context: targets/kindlepw2
-          file: targets/kindlepw2/docker/sdk-prebuilt.Dockerfile
+          context: targets/kindle5
+          file: targets/kindle5/docker/Dockerfile
           push: true
-          tags: ${{ steps.meta.outputs.tags }}-kindlepw2
+          tags: ${{ steps.meta.outputs.tags }}-kindle5-sdk
           labels: ${{ steps.meta.outputs.labels }}

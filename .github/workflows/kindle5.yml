@@ -12,7 +12,7 @@ env:
   IMAGE_NAME: ${{ github.repository }}
 
 jobs:
-  build-push:
+  build:
     name: Kindle 5 build
     runs-on: ubuntu-latest
     permissions:
