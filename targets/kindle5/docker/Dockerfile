@@ -12,19 +12,19 @@ RUN apt install -y build-essential autoconf automake bison flex gawk libtool lib
 
 RUN useradd -ms /bin/bash sdk
 
-RUN mkdir x-tools && chown -R sdk:sdk x-tools
-
 USER sdk
 
 WORKDIR /home/sdk
 
 RUN git clone https://github.com/koreader/koxtoolchain.git
 
-RUN cd koxtoolchain && ./gen-tc.sh kindle5 && mv /home/sdk/x-tools/* /app/x-tools/
+RUN cd koxtoolchain && ./gen-tc.sh kindle5
 
 USER root
 
 WORKDIR /app
+
+RUN mv /home/sdk/x-tools .
 
 COPY docker/compile.sh .
 
